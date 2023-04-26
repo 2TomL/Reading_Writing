@@ -1,6 +1,7 @@
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Scanner;
 
 public class MainApp {
     public static void main(String[] args) throws IOException {
@@ -20,9 +21,12 @@ public class MainApp {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the best joke you can think of:");
+        String message = scanner.nextLine();
         try (BufferedWriter bufferedWriter = new BufferedWriter(
                 new FileWriter(messagePath.toString()))) {
-            bufferedWriter.write("I was setting a voice recognition password for my new phone and a nearby dog barked and ran away.\n\nNow I am still looking for the dog to unlock my phone.");
+            bufferedWriter.write(message);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -40,12 +44,10 @@ public class MainApp {
 
             String word;
             while ((word= bufferedReader.readLine())!=null){
-                System.out.println(word);
-            }
 
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 }

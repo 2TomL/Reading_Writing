@@ -19,7 +19,4 @@ public class Animal {
         return edible;
     }
 
-    public void setEdible(boolean edible) {
-        this.edible = edible;
-    }
 }
